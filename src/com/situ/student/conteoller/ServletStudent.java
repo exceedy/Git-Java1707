@@ -29,7 +29,7 @@ public class ServletStudent extends BaseServlet {
 		String servletPath = req.getServletPath();
 		HttpSession session = req.getSession(false);
 			if (session == null) {
-				resp.sendRedirect(req.getContextPath() + "/jsp/login.jsp");
+				resp.sendRedirect(req.getContextPath() + "/WEB-INF/jsp/login.jsp");
 				return;
 			}  
 		
@@ -54,7 +54,7 @@ public class ServletStudent extends BaseServlet {
 		BanjiServlet banjiServlet = new BanjiServlet();
 		List<Banji> banjiList = banjiServlet.banjiList();
 		req.setAttribute("banjiList", banjiList);
-		req.getRequestDispatcher("/jsp/add_student.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/jsp/add_student.jsp").forward(req, resp);
 	}
 	
 	private void toupdate(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
@@ -64,7 +64,7 @@ public class ServletStudent extends BaseServlet {
 		List<Banji> banjiList = banjiServlet.banjiList();
 		req.setAttribute("banjiList", banjiList);
 		req.setAttribute("student", student);
-		req.getRequestDispatcher("/jsp/update_student.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/jsp/update_student.jsp").forward(req, resp);
 	}
 		/**
 		 * 学生已经是否存在
@@ -104,7 +104,7 @@ public class ServletStudent extends BaseServlet {
 			req.setAttribute("banjiList", banjiList);
 			req.setAttribute("pageBean", pageBean);
 			req.setAttribute("method", req.getParameter("method"));
-			req.getRequestDispatcher("/jsp/findall_student.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/jsp/findall_student.jsp").forward(req, resp);
 		}
 		
 		/**
@@ -145,7 +145,7 @@ public class ServletStudent extends BaseServlet {
 			}*/
 			/*System.out.println(req.getServletPath());
 			System.out.println(req.getParameter("method"));*/
-			req.getRequestDispatcher("/jsp/findall_student.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/jsp/findall_student.jsp").forward(req, resp);
 		}
 		
 	/**
@@ -207,7 +207,7 @@ public class ServletStudent extends BaseServlet {
 		PageBean pageBean = studentService.getPageBean(index,pageSize); 
 		pageBean.setList(list);
 		req.setAttribute("pageBean", pageBean);
-		req.getRequestDispatcher("/jsp/findall_student.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/jsp/findall_student.jsp").forward(req, resp);
 		/*printlnStudent(printWriter, list);*/
 	}
 
@@ -238,7 +238,7 @@ public class ServletStudent extends BaseServlet {
 		PageBean pageBean = studentService.getPageBean(index,pageSize); 
 		pageBean.setList(list);
 		req.setAttribute("pageBean", pageBean);
-		req.getRequestDispatcher("/jsp/findall_student.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/jsp/findall_student.jsp").forward(req, resp);
 		/*printlnStudent(printWriter, list);*/
 	}
 
@@ -279,7 +279,7 @@ public class ServletStudent extends BaseServlet {
 		PageBean pageBean = studentService.getPageBean(index,pageSize); 
 		pageBean.setList(list);
 		req.setAttribute("pageBean", pageBean);
-		req.getRequestDispatcher("/jsp/findall_student.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/jsp/findall_student.jsp").forward(req, resp);
 			/*printlnStudent(printWriter, list);*/
 	}
 
@@ -310,7 +310,7 @@ public class ServletStudent extends BaseServlet {
 		PageBean pageBean = studentService.getPageBean(index,pageSize); 
 		pageBean.setList(list);
 		req.setAttribute("pageBean", pageBean);
-		req.getRequestDispatcher("/jsp/findall_student.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/jsp/findall_student.jsp").forward(req, resp);
 			/*printlnStudent(printWriter, list);*/
 	}
 
@@ -342,7 +342,7 @@ public class ServletStudent extends BaseServlet {
 		PageBean pageBean = studentService.getPageBean(index,pageSize); 
 		pageBean.setList(list);
 		req.setAttribute("pageBean", pageBean);
-		req.getRequestDispatcher("/jsp/findall_student.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/jsp/findall_student.jsp").forward(req, resp);
 		/*printlnStudent(printWriter, list);*/
 	}
 
@@ -427,7 +427,7 @@ public class ServletStudent extends BaseServlet {
 			req.setAttribute("name", urname);
 		}
 		
-		req.getRequestDispatcher("/jsp/findall_student.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/jsp/findall_student.jsp").forward(req, resp);
 		
 		    for (Student student : list) {
 				

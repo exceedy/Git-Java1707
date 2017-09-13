@@ -20,7 +20,7 @@ public class AdminServlet extends BaseServlet{
 		Admin admin = new Admin(ursename,password);
 		int result = adminService.addAdmin(admin);
 		if (result > 0) {
-			req.getRequestDispatcher("/jsp/login.jsp").forward(req, resp);
+			resp.sendRedirect(req.getContextPath() + "/login?method=toLogin");
 		} 
 	}
 	public void isExist(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,12 +36,12 @@ public class AdminServlet extends BaseServlet{
 			List<Admin> onLineAdminList = (List<Admin>)getServletContext().getAttribute("onLineAdminList");
 			onLineAdminList.remove(admin);
 		}
-		resp.sendRedirect(req.getContextPath() + "/jsp/login.jsp");
+		resp.sendRedirect(req.getContextPath() + "/login?method=toLogin");
 		
 	}
 	
 	public void toOnlineList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/jsp/online_admin.jsp").forward(req, resp);;
+		req.getRequestDispatcher("/WEB-INF/jsp/online_admin.jsp").forward(req, resp);;
 	}
 	
 }

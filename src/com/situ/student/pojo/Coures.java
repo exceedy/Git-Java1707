@@ -7,6 +7,7 @@ public class Coures implements Serializable{
 	private String name;
 	private Integer grade;
 	private String banjiName;
+	private Integer count;
 	
 	
 	
@@ -15,6 +16,66 @@ public class Coures implements Serializable{
 		super();
 		this.name = name;
 		this.grade = grade;
+	}
+
+	
+
+	
+
+	public Coures(String id, String name, Integer grade, Integer count) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.grade = grade;
+		this.count = count;
+	}
+
+
+
+
+
+	public Coures() {
+		super();
+	}
+
+
+
+
+
+	public Coures(String name, Integer grade, Integer count) {
+		super();
+		this.name = name;
+		this.grade = grade;
+		this.count = count;
+	}
+
+
+
+
+
+	public Coures(String id, String name, Integer grade, String banjiName, Integer count) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.grade = grade;
+		this.banjiName = banjiName;
+		this.count = count;
+	}
+
+
+
+
+
+	public Integer getCount() {
+		return count;
+	}
+
+
+
+
+
+	public void setCount(Integer count) {
+		this.count = count;
 	}
 
 
@@ -129,8 +190,14 @@ public class Coures implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Coures [id=" + id + ", name=" + name + ", grade=" + grade + ", banjiName=" + banjiName + "]";
+		return "Coures [id=" + id + ", name=" + name + ", grade=" + grade + ", banjiName=" + banjiName + ", count="
+				+ count + "]";
 	}
+
+
+
+
+
 
 
 

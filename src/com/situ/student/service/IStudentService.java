@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import com.situ.student.exception.NameReapeatException;
-import com.situ.student.pojo.Admin;
 import com.situ.student.pojo.Student;
 import com.situ.student.vo.PageBean;
 import com.situ.student.vo.SearchCondition;

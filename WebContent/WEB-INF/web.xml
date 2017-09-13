@@ -247,6 +247,23 @@
   	<servlet-name>Upload</servlet-name>
   	<url-pattern>/upload</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>Coures</servlet-name>
+  	<servlet-class>com.situ.student.conteoller.CouresServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Coures</servlet-name>
+  	<url-pattern>/coures</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>BanjiCoures</servlet-name>
+  	<servlet-class>com.situ.student.conteoller.BanjiCouresServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BanjiCoures</servlet-name>
+  	<url-pattern>/banjicoures</url-pattern>
+  </servlet-mapping>
   
   
 </web-app>

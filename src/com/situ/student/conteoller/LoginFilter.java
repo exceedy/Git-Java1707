@@ -34,12 +34,13 @@ public class LoginFilter implements Filter {
 			return;
 		}
 		if ("login.jsp".equals(path) || "login".equals(path) 
-				|| "addAdmin".equals(path) || "chekImg".equals(path)) {
+				|| "addAdmin".equals(path) || "chekImg".equals(path) || "toLogin".equals(path)
+				|| "toRegister".equals(path)) {
 			chain.doFilter(request, response);
 		} else {
 			HttpSession session = req.getSession(false);
 			if (session == null) {
-				resp.sendRedirect(req.getContextPath() + "/jsp/login.jsp");
+				resp.sendRedirect(req.getContextPath() + "/login?method=toLogin");
 			} else {
 		chain.doFilter(request, response);
 			}

@@ -29,6 +29,8 @@
 				
 			});
 		});
+		
+		
 </script>
 </head>
 <body>
@@ -36,7 +38,7 @@
 		
     <div class="container cen">
 
-      <form class="form-signin" action="<%=request.getContextPath()%>/login" method="post">
+      <form class="form-signin" action="<%=request.getContextPath()%>/login?method=login" method="post">
         <h2 class="form-signin-heading">登录</h2>
         <label for="inputEmail" class="sr-only ">用户名</label>
         <input  id="inputEmail" class="form-control width" placeholder="账户" name="urname" required autofocus>

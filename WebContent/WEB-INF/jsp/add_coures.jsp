@@ -28,24 +28,28 @@
 		    <div class="row">
 		        <div class="col-md-2">
 		            <div class="list-group">
-		                <a href="${pageContext.request.contextPath}/banji?method=pageList" class="list-group-item ">学生管理</a>
-		                <a href="${pageContext.request.contextPath}/banji?method=toAddbanji" class="list-group-item active">添加学生</a>
+		                <a href="${pageContext.request.contextPath}/coures?method=pageList" class="list-group-item ">学生管理</a>
+		                <a href="${pageContext.request.contextPath}/coures?method=toAddcoures" class="list-group-item active">添加学生</a>
 		            </div>
 		        </div>
 		        <div class="col-md-10">
 		            <ul class="nav nav-tabs">
 		                <li >
-		                    <a href="${pageContext.request.contextPath}/banji?method=pageList">班级列表</a>
+		                    <a href="${pageContext.request.contextPath}/coures?method=pageList">课程列表</a>
 		                </li>
 		                <li class="active" >
-		                	<a href="${pageContext.request.contextPath}/banji?method=toAddbanji">添加班级</a>
+		                	<a href="${pageContext.request.contextPath}/coures?method=toAddcoures">添加课程</a>
 		                </li>
 		            </ul>
 	
-				<form class="form_b" action="<%= request.getContextPath()%>/banji?method=addbanji" method="post"> 
+				<form class="form_b" action="<%= request.getContextPath()%>/coures?method=addcoures" method="post"> 
 					<div class="input-group input-group-sm">
- 						 <span class="input-group-addon" id="sizing-addon3">班级名称</span>
-  						<input type="text" id="name" name="name" class="form-control" placeholder="班级名称" aria-describedby="sizing-addon3">
+ 						 <span class="input-group-addon" id="sizing-addon3">课程名称</span>
+  						<input type="text" id="name" name="name" class="form-control" placeholder="课程名称" aria-describedby="sizing-addon3">
+					</div>
+					<div class="input-group input-group-sm">
+ 						 <span class="input-group-addon" id="sizing-addon3">课程分值</span>
+  						<input type="text" id="name" name="grade" class="form-control" placeholder="课程分值" aria-describedby="sizing-addon3">
 					</div>
 					<input class="btn btn-primary" type="submit" value="添加">
 				</form>

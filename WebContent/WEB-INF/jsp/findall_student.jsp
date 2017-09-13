@@ -2,6 +2,7 @@
     pageEncoding="utf-8" import="com.situ.student.pojo.Student" %>
     <%@ page import="java.util.List" %>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,8 +13,6 @@
 <title>Insert title here</title>
 <style type="text/css">
 		
-	
-	
 </style>
 <script type="text/javascript">
 	$(function() {
@@ -63,6 +62,28 @@
 		                	<a href="${pageContext.request.contextPath}/student?method=toAddStudent">添加学生</a>
 		                </li>
 		            </ul>
+		            <!-- 高级搜索 -->
+				<div class="container">
+					<form class="form-inline" action="${pageContext.request.contextPath}/student?method=specialSelect" id="serviceForm" method="post">
+					<input type="hidden" name="pageIndex" id="pageIndex"/>
+							姓名：<input  class="form-control " type="text" name="name" value="${searchCondition.name}"/>
+							年龄：<input class="form-control " type="text" name="age" value="${searchCondition.age}"/>
+							地址：<input class="form-control " type="text" name="address" value="${searchCondition.address}"/>
+							生日：<input class="form-control " type="text" name="birthday" value="${searchCondition.birthday}"/>
+							性别：<select class="form-control " name="gender" id="gender">
+								<option value="">不限</option>
+								<option value="男">男</option>
+								<option value="女">女</option>
+							</select>
+							班级：<select class="form-control" name="banji" id="banji">
+										<option value="">不限</option>	
+										<c:forEach items="${banjiList}" var = "banji">
+												<option value="${banji.id}">${banji.name}</option>	
+										</c:forEach>
+							</select>
+							<input type="submit" value="查询" class="btn btn-primary"/>
+					</form>
+				</div>
 			<form action="${pageContext.request.contextPath}/student?method=deleteAll" id="mainform" method="post">
 				<table  class="table table-striped table-bordered table-hover">
 					<tr>
@@ -81,7 +102,7 @@
 					<tr>
 						<td><input type="button" value="批量删除" onclick="deleteAll();" /></td>
 						<td><a class="btn btn-primary" href="${pageContext.request.contextPath}/student?method=toAddStudent">添加</a></td>
-						<td><a href="${pageContext.request.contextPath}/admin?method=toOnlineList">${admin.ursename}</a></td>
+						
 					</tr>
 					<%-- <%	for (Student student : list) {
 					%>	 --%>
@@ -106,28 +127,7 @@
 			</div>
 		</div>
 	</div>
-				<!-- 高级搜索 -->
-				<div class="container">
-					<form class="form-inline" action="${pageContext.request.contextPath}/student?method=specialSelect" id="serviceForm" method="post">
-					<input type="hidden" name="pageIndex" id="pageIndex"/>
-							姓名：<input  class="form-control" type="text" name="name" value="${searchCondition.name}"/>
-							年龄：<input class="form-control" type="text" name="age" value="${searchCondition.age}"/>
-							地址：<input class="form-control" type="text" name="address" value="${searchCondition.address}"/>
-							生日：<input class="form-control" type="text" name="birthday" value="${searchCondition.birthday}"/>
-							性别：<select class="form-control" name="gender" id="gender">
-								<option value="">不限</option>
-								<option value="男">男</option>
-								<option value="女">女</option>
-							</select>
-							班级：<select class="form-control" name="banji" id="banji">
-										<option value="">不限</option>	
-										<c:forEach items="${banjiList}" var = "banji">
-												<option value="${banji.id}">${banji.name}</option>	
-										</c:forEach>
-							</select>
-							<input type="submit" value="查询" class="btn btn-primary"/>
-					</form>
-				</div>
+				
 					
 					<!--分页按钮-->
 		<div class="container">

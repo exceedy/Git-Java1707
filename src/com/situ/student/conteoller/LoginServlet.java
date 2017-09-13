@@ -5,8 +5,6 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,15 +13,15 @@ import com.situ.student.pojo.Admin;
 import com.situ.student.service.AdminServiceImpl;
 import com.situ.student.service.IAdminService;
 
-public class LoginServlet extends HttpServlet{
+public class LoginServlet extends BaseServlet{
 	IAdminService adminService = new AdminServiceImpl();
-		@Override
-		protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+		protected void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			String chekCode = req.getParameter("checkCode");
 			HttpSession session = req.getSession();
 			String checkCodeSession  = (String) session.getAttribute("checkCodeSession");
 			if (!chekCode.equals(checkCodeSession) ) {
-				resp.sendRedirect(req.getContextPath() + "/jsp/login.jsp");
+				resp.sendRedirect(req.getContextPath() + "/login?method=toLogin");
 				return;
 			}
 			String urname = req.getParameter("urname");
@@ -38,12 +36,18 @@ public class LoginServlet extends HttpServlet{
 					onLineAdminList.add(admin);
 					resp.sendRedirect(req.getContextPath() + "/student?method=pageList");
 				} else {
-					resp.sendRedirect(req.getContextPath() + "/jsp/register.jsp");
+					resp.sendRedirect(req.getContextPath() + "/login?method=toLogin");
 				}
 			}else {
-				resp.sendRedirect(req.getContextPath() + "/jsp/register.jsp");
+				resp.sendRedirect(req.getContextPath() + "/login?method=toRegister");
 			}
  			
 			
+		}
+		protected void toLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
+		}
+		protected void toRegister(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			req.getRequestDispatcher("/WEB-INF/jsp/register.jsp").forward(req, resp);
 		}
 }

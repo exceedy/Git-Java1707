@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 	<!-- 导航条begin -->
 	<nav class="navbar navbar-default">
 		  <div class="container-fluid">
@@ -19,26 +20,36 @@
 		      <ul class="nav navbar-nav">
 		        <li >
 		        
+		        	<a href="${pageContext.request.contextPath}/student?method=pageList">
 		        	<span class="glyphicon glyphicon-user"></span>
-		        	<a href="${pageContext.request.contextPath}/student?method=pageList">学生管理<span class="sr-only">(current)</span></a></li>
+		        	学生管理<span class="sr-only">(current)</span></a></li>
 		        	
-		        <li class="active">
+		        <li >
+		        	<a href="${pageContext.request.contextPath}/banji?method=pageList">
 		        	<span class="glyphicon glyphicon-home"></span>
-		        	<a href="${pageContext.request.contextPath}/banji?method=pageList">班级管理</a></li>
+		        	班级管理</a></li>
 		        	
 		        
-		        <li>
+		        <li >
+		        	<a href="${pageContext.request.contextPath}/coures?method=pageList">
 		        	<span class="glyphicon glyphicon-book"></span>
-		        	<a href="#">课程管理</a></li>
-		        <li>
+		        	课程管理</a></li>
+		        <li class="active">
+		        	<a href="${pageContext.request.contextPath}/banjicoures?method=pageList">
 		        	<span class="glyphicon glyphicon-tags"></span>
-		        	<a href="#">教务管理</a></li>
+		        	教务管理</a></li>
 		        </ul>
 		        
 		    <ul class="nav navbar-nav navbar-right">
+		    	<li><a>欢迎回来${admin.ursename}</a></li>
+		    	<li>
+		    		<a href="${pageContext.request.contextPath}/admin?method=toOnlineList">在线人数${fn:length(onLineAdminList)}</a>
+				</li>
 				<li>
+				<li>
+					<a href="${pageContext.request.contextPath}/admin?method=out">
 		        	<span class="glyphicon glyphicon-off"></span>
-					<a href="${pageContext.request.contextPath}/admin?method=out">退出</a>
+					退出</a>
      
            	
           </ul>

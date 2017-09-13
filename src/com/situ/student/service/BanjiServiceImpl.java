@@ -9,7 +9,7 @@ import com.situ.student.dao.impl.StudentDaoMysqlImpl;
 import com.situ.student.pojo.Banji;
 import com.situ.student.vo.PageBean;
 
-public class BanjiServiceImlp implements IBanjiService {
+public class BanjiServiceImpl implements IBanjiService {
 	IStudentDao studentDao = new StudentDaoMysqlImpl();
 	IBanjiDao banjiDao = new BanjiDaoImpl();
 	@Override
@@ -42,6 +42,14 @@ public class BanjiServiceImlp implements IBanjiService {
 	@Override
 	public int addbanji(String name) {
 		return banjiDao.addbanji(name);
+	}
+	@Override
+	public Banji getBanjiById(int id) {
+		return banjiDao.getBanjiById(id);
+	}
+	@Override
+	public int updatebanji(Banji banji) {
+		return banjiDao.updatebanji(banji);
 	}
 
 }

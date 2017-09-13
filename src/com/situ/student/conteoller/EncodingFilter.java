@@ -24,7 +24,7 @@ public class EncodingFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		String method = req.getMethod();
-		if ("GET".equals(method)) {
+		if ("GET".equalsIgnoreCase(method)) {
 			EncodingRequest encodingRequest = new EncodingRequest(req);
 			chain.doFilter(encodingRequest, response);
 		} else {

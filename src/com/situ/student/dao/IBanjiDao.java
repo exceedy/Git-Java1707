@@ -14,4 +14,8 @@ public interface IBanjiDao {
 
 	int addbanji(String name);
 
+	Banji getBanjiById(int id);
+
+	int updatebanji(Banji banji);
+
 }
