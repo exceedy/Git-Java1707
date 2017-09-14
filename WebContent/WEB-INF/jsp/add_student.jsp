@@ -14,7 +14,7 @@
 			$("#name").blur(function () {
 				var name = $(this).val();
 				$.post(
-					"${pageContext.request.contextPath}/student?method=chekName",
+					"${pageContext.request.contextPath}/student/chekName.action",
 					{"name":name},
 					function (data) {
 						if (data.isExit) {
@@ -47,21 +47,21 @@
 		    <div class="row">
 		        <div class="col-md-2">
 		            <div class="list-group">
-		                <a href="${pageContext.request.contextPath}/student?method=pageList" class="list-group-item ">学生管理</a>
-		                <a href="${pageContext.request.contextPath}/student?method=toAddStudent" class="list-group-item active">添加学生</a>
+		                <a href="${pageContext.request.contextPath}/student/pageList.action" class="list-group-item ">学生管理</a>
+		                <a href="${pageContext.request.contextPath}/student/toAddStudent.action" class="list-group-item active">添加学生</a>
 		            </div>
 		        </div>
 		        <div class="col-md-10">
 		            <ul class="nav nav-tabs">
 		                <li >
-		                    <a href="${pageContext.request.contextPath}/student?method=pageList">学生列表</a>
+		                    <a href="${pageContext.request.contextPath}/student/pageList.action">学生列表</a>
 		                </li>
 		                <li class="active" >
-		                	<a href="${pageContext.request.contextPath}/student?method=toAddStudent">添加学生</a>
+		                	<a href="${pageContext.request.contextPath}/student/toAddStudent.action">添加学生</a>
 		                </li>
 		            </ul>
 	
-				<form class="form_b" action="<%= request.getContextPath()%>/student?method=addStudent" method="post"> 
+				<form class="form_b" action="<%= request.getContextPath()%>/student/addStudent.action" method="post"> 
 					<div class="input-group input-group-sm">
  						 <span class="input-group-addon" id="sizing-addon3">姓名</span>
   						<input type="text" id="name" name="name" class="form-control" placeholder="姓名" aria-describedby="sizing-addon3">

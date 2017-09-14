@@ -2,14 +2,13 @@ package com.situ.student.conteoller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.situ.student.pojo.Banji;
 import com.situ.student.pojo.BanjiCoures;
-import com.situ.student.pojo.Coures;
 import com.situ.student.service.BanjiCouresServiceImpl;
 import com.situ.student.service.BanjiServiceImpl;
 import com.situ.student.service.CouresServiceImpl;
@@ -33,13 +32,15 @@ public class BanjiCouresServlet extends BaseServlet{
 		if (pageSizeStr != null && !pageSizeStr.equals("")) {
 			pageSize = Integer.parseInt(pageSizeStr);
 		}
-		PageBean<Banji> pageBean = banjiService.getPageList(pageIndex, pageSize);
+		PageBean<Map<String,Object>> pageBean = banjiCouresService.getPageList(pageIndex,pageSize);
+		/*PageBean<Banji> pageBean = banjiService.getPageList(pageIndex, pageSize);
 		List<Banji> banji = banjiService.getBanjiList();
-		List<Coures> couresList = couresService.getCoures();
+		List<Coure s> couresList = couresService.getCoures();
 		List<Coures> banjiCouresList = couresService.getCouresList();
 		req.setAttribute("banji", banji);
 		req.setAttribute("couresList", couresList);
 		req.setAttribute("banjiCouresList", banjiCouresList);
+		req.setAttribute("pageBean", pageBean);*/
 		req.setAttribute("pageBean", pageBean);
 		req.getRequestDispatcher("/WEB-INF/jsp/banjicoures_show.jsp").forward(req, resp);
 	}

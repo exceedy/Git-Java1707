@@ -86,31 +86,24 @@
 				
 				<tr>
 					<td><input type="checkbox" id="selectAll" onclick="selectAlls();"/></td>
-					<td>id</td>
+					<td>学生姓名</td>
 					<td>班级</td>
 					<td>课程</td>
+					<td>学分</td>
 				</tr>
 				<tr>
 					<td>
 						<input type="button" onclick="deleteAll();" value="批量 删除" />
 					</td>
 				</tr>
-				<tr>
-				</tr>
 				
-				<c:forEach items="${pageBean.list}" var="banjicoures">
+				<c:forEach items="${pageBean.list}" var="banjicoureses">
 					<tr>
-					<td><input type="checkbox" name="selectId" value="${banjicoures.id}"/></td>
-					<td>${banjicoures.id}</td>
-					<td>${banjicoures.name}</td>
-						<td>
-						<c:forEach items="${couresList}" var="cou">
-							<c:if test="${banjicoures.name == cou.banjiName}">
-							${cou.name}
-							</c:if>
-						</c:forEach>
-					</td>
-					<td></td>
+					<td><input type="checkbox" name="selectId" value="${banjicoureses.id}"/></td>
+					<td>${banjicoureses['student_name']}</td>
+					<td>${banjicoureses['banji_name']}</td>
+					<td>${banjicoureses['coures_name']}</td>
+					<td>${banjicoureses['grade']}</td>	
 				</tr>
 				</c:forEach>
 				</table>

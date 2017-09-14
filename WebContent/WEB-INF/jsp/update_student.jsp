@@ -25,21 +25,21 @@
 		    <div class="row">
 		        <div class="col-md-2">
 		            <div class="list-group">
-		                <a href="${pageContext.request.contextPath}/student?method=pageList" class="list-group-item active">学生管理</a>
-		                <a href="${pageContext.request.contextPath}/student?method=toAddStudent" class="list-group-item ">添加学生</a>
+		                <a href="${pageContext.request.contextPath}/student/pageList.action" class="list-group-item active">学生管理</a>
+		                <a href="${pageContext.request.contextPath}/student/toAddStudent.action" class="list-group-item ">添加学生</a>
 		            </div>
 		        </div>
 		        <div class="col-md-10">
 		            <ul class="nav nav-tabs">
 		                <li class="active">
-		                    <a href="${pageContext.request.contextPath}/student?method=pageList">学生列表</a>
+		                    <a href="${pageContext.request.contextPath}/student/pageList.action">学生列表</a>
 		                </li>
 		                <li  >
-		                	<a href="${pageContext.request.contextPath}/student?method=toAddStudent">添加学生</a>
+		                	<a href="${pageContext.request.contextPath}/student/toAddStudent.action">添加学生</a>
 		                </li>
 		            </ul>
 		
-				<form action="<%=request.getContextPath()%>/student?method=updateStudent" method="post">
+				<form action="<%=request.getContextPath()%>/student/updateStudent.action" method="post">
 				<div class="input-group input-group-sm">
  						 <span class="input-group-addon" id="sizing-addon3">id</span>
   						<input type="text"  name="id" class="form-control" readonly value="${student.id}" aria-describedby="sizing-addon3">
